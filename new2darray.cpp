@@ -5,9 +5,9 @@ int main() {
     int n, m;
     cin>>n>>m;
     //dynamically allocate 2d array
-    int** arr = new int*[n];
+    int** arr = new int*[n]; //size of the row
     for(int i=0;i<n;i++){
-        arr[i] = new int[m];
+        arr[i] = new int[m]; // size of the column
     }
     for(int i=0;i<n;i++){
         for(int j=0;j<m;j++){

@@ -27,14 +27,14 @@ bool solveNQueens(int** board, int N, int row) {
         }
         cout << endl;
         return true; // Return true to find one solution; modify for multiple solutions
-    }
+    } 
 
     bool foundSolution = false;
 
     for (int col = 0; col < N; col++) {
         if (isSafe(board, N, row, col)) {
             board[row][col] = 1; // Place the queen
-
+            // if (solveNQueens(board, N, row + 1)) return true;
             foundSolution = solveNQueens(board, N, row + 1) || foundSolution;
 
             board[row][col] = 0; // Backtrack
@@ -42,6 +42,7 @@ bool solveNQueens(int** board, int N, int row) {
     }
 
     return foundSolution;
+    // return false;
 }
 
 int main() {
