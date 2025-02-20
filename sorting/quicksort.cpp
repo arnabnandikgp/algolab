@@ -30,6 +30,33 @@ void quicksort(int *arr, int low, int high)
     }
 }
 
+int quickSelect(int *arr, int low, int high, int k)
+{
+    if (k > 0 && k <= high - low + 1)
+    {
+        int index = partition(arr, low, high);
+
+        if (index - low == k - 1)
+        {
+            return arr[index];
+        }
+
+        // If position is more, recur for the left subarray.
+        if (index - low > k - 1)
+        {
+            return quickSelect(arr, low, index - 1, k);
+        }
+
+        // Else recur for the right subarray.
+        else
+        {
+            return quickSelect(arr, index + 1, high, k - index + low - 1);
+        }
+    }
+
+    return 1e9;
+}
+
 int main()
 {
     int n;
